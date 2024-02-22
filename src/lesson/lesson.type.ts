@@ -9,12 +9,12 @@ export class LessonType {
   @Field((_type) => ID) // It is a good idea to add the @Field() decorator to each property of the class
   id: string;
 
-  @Field()
+  @Field(() => String) // We can also pass a function that returns the type
   name: string;
 
-  @Field()
+  @Field(() => String)
   startDate: string;
 
-  @Field()
+  @Field(() => String)
   endDate: string;
 }
