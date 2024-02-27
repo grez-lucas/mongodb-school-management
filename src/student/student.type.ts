@@ -5,8 +5,8 @@ export class StudentType {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   @Field((_type) => ID)
   id: string;
-  @Field()
+  @Field(() => String)
   firstName: string;
-  @Field()
+  @Field(() => String)
   lastName: string;
 }
