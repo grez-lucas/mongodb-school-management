@@ -7,13 +7,8 @@ import { LessonService } from './lesson.service';
 export class LessonResolver {
   constructor(private lessonService: LessonService) {}
   @Query((_returns) => LessonType)
-  lesson() {
-    return {
-      id: 'a6f9b6e7-3b5d-4d1b-8b5d-3c5e3e6e6e6e',
-      name: 'Physics Class',
-      startDate: new Date().toISOString(),
-      endDate: new Date().toISOString(),
-    };
+  getLesson(@Args('id') id: string) {
+    return this.lessonService.getLesson(id);
   }
 
   @Query((_returns) => LessonType)
