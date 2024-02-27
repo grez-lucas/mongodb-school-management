@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { StudentService } from './student.service';
 import { StudentType } from './student.type';
+import { CreateStudentInput } from './create-student.input';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 @Resolver((_of) => StudentType)
@@ -15,5 +16,12 @@ export class StudentResolver {
       firstName: 'Tim',
       lastName: 'Smith',
     };
+  }
+
+  @Mutation((_returns) => StudentType)
+  createStudent(
+    @Args('createStudentInputs') createStudentInput: CreateStudentInput,
+  ) {
+    return this.studentService.createStudent(createStudentInput);
   }
 }
