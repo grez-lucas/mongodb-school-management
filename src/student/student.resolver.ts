@@ -18,6 +18,11 @@ export class StudentResolver {
     };
   }
 
+  @Query((_returns) => [StudentType])
+  getStudents() {
+    return this.studentService.getStudents();
+  }
+
   @Mutation((_returns) => StudentType)
   createStudent(
     @Args('createStudentInputs') createStudentInput: CreateStudentInput,
