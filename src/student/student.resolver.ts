@@ -10,12 +10,8 @@ export class StudentResolver {
   constructor(private studentService: StudentService) {}
 
   @Query((_returns) => StudentType)
-  getStudent() {
-    return {
-      id: '123',
-      firstName: 'Tim',
-      lastName: 'Smith',
-    };
+  getStudent(@Args('id') id: string) {
+    return this.studentService.getStudent(id);
   }
 
   @Query((_returns) => [StudentType])
