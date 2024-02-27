@@ -12,9 +12,9 @@ export class LessonResolver {
     return this.lessonService.getLesson(id);
   }
 
-  @Query((_returns) => LessonType)
-  lessonById(@Args('id') id: string) {
-    return this.lessonService.getLesson(id);
+  @Query((_returns) => [LessonType])
+  getLessons() {
+    return this.lessonService.getLessons();
   }
 
   @Mutation((_returns) => LessonType)

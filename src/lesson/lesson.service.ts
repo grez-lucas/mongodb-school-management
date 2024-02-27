@@ -32,4 +32,9 @@ export class LessonService {
     }
     return lesson;
   }
+
+  async getLessons(): Promise<Lesson[]> {
+    const lessons = await this.lessonRepository.find();
+    return lessons;
+  }
 }
